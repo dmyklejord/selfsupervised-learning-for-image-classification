@@ -118,7 +118,7 @@ class ImagePair(torchvision.datasets.ImageFolder):
         if self.target_transform is not None:
             target = self.target_transform(target)
 
-        return sample1, sample2, target,
+        return sample1, sample2, target
 
     def __len__(self):
         return len(self.samples)

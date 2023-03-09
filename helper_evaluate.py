@@ -270,6 +270,7 @@ def visualize_hover_images(model_name, embeddings, test_images, pred_classes, cl
     # Converts the images in 8-bit rgb to pillow images to allow embedding into
     # the interactive plot.
     def embeddable_image(data):
+        data = np.transpose((255 * data).astype(np.uint8), (1,2,0)) # This line is needed because the img went through the pytorch test_image transform initially
         image = Image.fromarray(data, mode='RGB').resize((64, 64), Image.Resampling.BICUBIC)
         buffer = BytesIO()
         image.save(buffer, format='png')
@@ -394,7 +395,7 @@ def kmeans_classifier_2class(test_X, test_y):
         return pred_labels2
 
 
-def kmeans_classifier(test_X, k=100):
+def kmeans_classifier(test_X, k=10):
     from sklearn.cluster import KMeans
     kmeans = KMeans(n_clusters=k, random_state=0).fit(test_X)
     pred_labels = kmeans.labels_
