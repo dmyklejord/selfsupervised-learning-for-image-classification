@@ -68,29 +68,32 @@ Explore the interactive TSNE visualizations by opening the .html files in the In
 
 
 ## Running on Custom Data:
-The "data" folder 
-should contain:
+I've only tested using .tif images, but the documentation
+seems to allow other formats (https://pytorch.org/vision/main/generated/torchvision.datasets.ImageFolder.html)
+
+
+The "data" folder should contain:
 
 data/
 - class_x
-  - xxx.ext
-  - xxy.ext
+  - xxx.tif
+  - xxy.tif
   - ...
-  - xxz.ext
+  - xxz.tif
 - class_y
-  - 123.ext
-  - nsdf3.ext
+  - 123.tif
+  - nsdf3.tif
   - ...
-  - asd932_.ext
+  - asd932_.tif
 
 In the case the data is unlabeled, use:
 
 data/
-- class_x
-  - xxx.ext
-  - xxy.ext
+- dataset_name
+  - xxx.tif
+  - xxy.tif
   - ...
-  - xxz.ext
+  - xxz.tif
 
 
 ---
