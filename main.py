@@ -142,7 +142,7 @@ np.savez(model_name+'_features', train_X=train_X, train_y=train_y, test_X=test_X
 # Trains a linear classifier on the data to determine accuracy and makes a confusion matrix.
 # Lets us see exactly what's going on under the hood, vs using sklearn.
 # returns dict of training and final losses and accuracies.
-log_dict = helper_evaluate.lin_eval(train_X, train_y, test_X, test_y, model_name, classes, DEVICE='cpu')
+log_dict = helper_evaluate.lin_eval(train_X, train_y, test_X, test_y, model_name, class_names, DEVICE='cpu')
 
 # BUT, it's slow, so we can use sklearn instead if we want:
 # pred_labels = helper_evaluate.linear_classifier(train_X, train_y, test_X, test_y)
@@ -154,19 +154,27 @@ tsne_xtest = TSNE(n_components=2, learning_rate='auto', init='random', perplexit
 helper_evaluate.visualize_tsne(model_name, tsne_xtest, class_names, test_y, close_fig=True)
 
 # Visualize TSNE with predicted labels:
-pred_labels = helper_evaluate.linear_classifier(train_X, train_y, test_X, test_y)
+if len(np.unique(test_y))>1:
+    pred_labels = helper_evaluate.linear_classifier(train_X, train_y, test_X, test_y)
+
+# If data is unlabeled, we use K-means:
+else:
+    pred_labels = helper_evaluate.kmeans_classifier(test_X, k=10)
+    class_names = np.unique(pred_labels)
+    test_y = None
+
 helper_evaluate.visualize_hover_images(model_name, tsne_xtest, test_images, pred_labels, class_names, test_y, showplot=True)
 
 '''
 # Extra functions that may be handy:
 
 pred_labels = helper_evaluate.kmeans_classifier_2class(test_X, test_y)
-pred_labels = helper_evaluate.kmeans_classifier(test_X, k=100)
+pred_labels = helper_evaluate.kmeans_classifier(test_X, k=10)
 pred_labels = helper_evaluate.knn_classifier(train_X, train_y, test_X, test_y, k=100)
 
 # For saving time with pre-trained model:
 model.load_state_dict(torch.load(f'{model_name}.pt')) # to load a pre-trained model
 features = np.load(model_name+'_features.npz')          # to load the embedded space that you've already found
-features = np.load('Moco_Lv8_SL_10EP_128BS_0.1LR_4096MB_features.npz')
+features = np.load('Moco_10EP_128BS_0.1LR_features.npz')
 train_X, train_y, test_X, test_y, test_images = features['train_X'], features['train_y'], features['test_X'], features['test_y'], features['test_images']   # Gets the embedded space into a usable format.
 '''
