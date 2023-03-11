@@ -64,13 +64,13 @@ def get_dataloaders_cifar10(
     num_workers=0):
 
     train_simclr_dataset = CIFAR10Pair(
-        root='data',
+        root='Cifar10_data',
         download=True,
         train=True,
         transform=train_transforms)
 
     test_simclr_dataset = CIFAR10Pair(
-        root='data',
+        root='Cifar10_data',
         download=True,
         train=False,
         transform=test_transforms)
