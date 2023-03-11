@@ -2,10 +2,7 @@
 import time
 import numpy as np
 import torch
-import torch.nn.functional as F
 import torch.nn as nn
-
-import torch.distributed as dist
 
 from lightly.loss import NTXentLoss
 from lightly.models.utils import update_momentum, batch_shuffle, batch_unshuffle
