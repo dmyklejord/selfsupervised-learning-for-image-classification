@@ -6,7 +6,7 @@ With the broad adoption of commercial drones, collecting aerial imagery is trivi
 
 | SimCLR | MoCo | BYOL |
 | :---: | :---: | :--: |
-| ![SimCLR](Images/Screenshot%202023-03-03%20at%204.19.39%20PM.png) | ![MoCo](Images/Screenshot%202023-03-03%20at%204.22.56%20PM.png) | ![BYOL](Images/Screenshot%202023-03-03%20at%204.23.55%20PM.png) |
+| ![SimCLR](ReadmeImagesScreenshot%202023-03-03%20at%204.19.39%20PM.png) | ![MoCo](ReadmeImagesScreenshot%202023-03-03%20at%204.22.56%20PM.png) | ![BYOL](ReadmeImagesScreenshot%202023-03-03%20at%204.23.55%20PM.png) |
 
 \* *Figures are from their respective papers.*
 
@@ -14,7 +14,7 @@ With the broad adoption of commercial drones, collecting aerial imagery is trivi
 Rice is cultivated on every continent except Antartica, and half of the world's population eats rice every day. Between 1961 and 2019, rice yields have increased by a factor of 2.5, with the highest yields occurring in developed regions. The worldwide significance of rice cultivation, and the role that cost-effective yield estimation plays in precision agriculture underpinned the motivation to use a UAV-collected aerial imagery dataset of rice seedlings. This dataset consisted of two classes, rice shoots and arable land. 
 
 
-![https://github.com/aipal-nchu/RiceSeedlingDataset#1-data-download-link](Images/Screenshot%202023-03-03%20at%204.52.27%20PM.png)
+![https://github.com/aipal-nchu/RiceSeedlingDataset#1-data-download-link](ReadmeImagesScreenshot%202023-03-03%20at%204.52.27%20PM.png)
 From: https://github.com/aipal-nchu/RiceSeedlingDataset#1-data-download-link
 
 ## How to run:
@@ -55,7 +55,7 @@ The script will start fine-tuning a ResNet-18 for 10-epochs using the MoCo-V2 fr
 | BYOL | Fine-Tuning | 10 | 0.9991 | 0.817 |
 
 ### TSNE Visualization of SimCLR Seedling data:
-![SimCLR TSNE](Images/Screenshot%202023-03-03%20at%207.56.02%20PM.png)
+![SimCLR TSNE](ReadmeImagesScreenshot%202023-03-03%20at%207.56.02%20PM.png)
 
 Explore the interactive TSNE visualizations by opening the .html files in the InteractivePlots folder.
 
